@@ -26,8 +26,8 @@ rankhospital <- function(state, outcome, num) {
   deathRates <- deathRates[states == state]
   hospitals <- data$Hospital.Name[states == state]
   
-  ## Get order permutation for lowest to highest, all NA sent to the end:
-  perm <- order(deathRates, hospitals, na.last = TRUE, decreasing = FALSE)
+  ## Get order permutation for lowest to highest, remove all NA:
+  perm <- order(deathRates, hospitals, na.last = NA, decreasing = FALSE)
   
   if (num == "best") {
     num <- 1
